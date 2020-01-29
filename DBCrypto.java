@@ -9,6 +9,7 @@ public class DBCrypto {
     
     public static String PBKDF2(String input, String salt, int workload)
     {
+        System.out.println("This is in PBKDF2 Method");
         try {
             byte[] saltBytes = hexToByteArray(salt);
 
@@ -27,6 +28,7 @@ public class DBCrypto {
 
     public static byte[] PBKDF2Bytes(String input, String salt, int workload)
     {
+        System.out.println("This is in PBKDF2Bytes Method");
         try {
             byte[] saltBytes = hexToByteArray(salt);
 
@@ -44,6 +46,7 @@ public class DBCrypto {
   
     public static String GenSalt(int length)
     {
+        System.out.println("This is in GenSalt Method");
         SecureRandom random = new SecureRandom();
         byte bytes[] = new byte[length];
         random.nextBytes(bytes); 
@@ -54,6 +57,7 @@ public class DBCrypto {
     }
 
     private static String byteArrayToHex(byte[] a) {
+      System.out.println("This is in byteArrayToHex Method");
       StringBuilder sb = new StringBuilder((a.length * 2)+2);
       sb.append("0x");
       for(byte b: a)
@@ -62,6 +66,8 @@ public class DBCrypto {
    }
 
    private static byte[] hexToByteArray(String s) {
+       
+     System.out.println("This is in hexToByteArray Method");
 
     if (s.substring(0, 2).equalsIgnoreCase("0x")) 
     {
@@ -79,6 +85,7 @@ public class DBCrypto {
 
 private static int toDigit(char hexChar) {
     int digit = Character.digit(hexChar, 16);
+    System.out.println("This is in toDigit Method");
     if(digit == -1) {
         throw new IllegalArgumentException(
           "Invalid Hexadecimal Character: "+ hexChar);
